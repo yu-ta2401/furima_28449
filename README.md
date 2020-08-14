@@ -46,4 +46,4 @@
 
 ### Association
 - belongs_to :purchase
-- belongs_to :items
+- belongs_to :item
