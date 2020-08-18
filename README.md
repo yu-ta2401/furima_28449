@@ -22,12 +22,13 @@
 | Colnmu      | Type   | Options     |
 | ----------- |------- | ----------- |
 | image       | text | null: false |
-| name        | text | null: false |
+| name        | string | null: false |
 | explanation | text | null: false |
 | state       | integer | null: false |
 | category    | integer | null: false |
 | price       | integer | null: false |
-| user        | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true | burden      | integer | null: false |
+| days        | integer | null: false |
 
 ### Association
 - belongs_to :user
@@ -44,12 +45,13 @@
 - belongs_to :user
 - has_one :delivery
 - belongs_to :items
-## deliverys テーブル
+
+## streetaddresss テーブル
 
 | Colnmu      | Type   | Options     |
 | ----------- |------- | ----------- |
 | postalcode  | string | null: false |
-| prefectures | string | null: false |
+| prefectures | integer | null: false |
 | city        | string | null: false |
 | address     | string | null: false |
 | place       | string | null: false |
