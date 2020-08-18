@@ -14,7 +14,7 @@
 | password    | string | null: false |
 
 ### Association
-- has_many :productnames
+- has_many :items
 - has_many :purchases
 
 ## items テーブル
