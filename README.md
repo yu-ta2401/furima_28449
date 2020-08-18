@@ -45,7 +45,7 @@
 
 ### Association
 - belongs_to :user
-- streetaddress :delivery
+- has_one :streetaddress
 - belongs_to :item
 
 ## streetaddresss テーブル
