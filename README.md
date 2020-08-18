@@ -27,8 +27,10 @@
 | state       | integer | null: false |
 | category    | integer | null: false |
 | price       | integer | null: false |
-| user        | references | null: false, foreign_key: true | burden      | integer | null: false |
+| user        | references | null: false, foreign_key: true 
+| burden      | integer | null: false |
 | days        | integer | null: false |
+| shippingorigin | integer | null: false |
 
 ### Association
 - belongs_to :user
@@ -39,12 +41,12 @@
 | Colnmu  | Type   | Options     |
 | ------- |------- | ----------- |
 | user    | references | null: false, foreign_key: true |
-| items   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - has_one :delivery
-- belongs_to :items
+- belongs_to :item
 
 ## streetaddresss テーブル
 
