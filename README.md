@@ -27,7 +27,6 @@
 | state       | integer | null: false |
 | category    | integer | null: false |
 | price       | integer | null: false |
-| exhibitor   | integer | null: false |
 | user        | references | null: false, foreign_key: true |
 
 ### Association
@@ -44,19 +43,19 @@
 ### Association
 - belongs_to :user
 - has_one :delivery
-- has_many :items
+- belongs_to :items
 ## deliverys テーブル
 
 | Colnmu      | Type   | Options     |
 | ----------- |------- | ----------- |
 | postalcode  | string | null: false |
 | prefectures | string | null: false |
-| ciriy       | string | null: false |
+| city        | string | null: false |
 | address     | string | null: false |
 | place       | string | null: false |
-| days        | string | null: false |
-| number      | string | null: false |
-| purchase    | references | null: false, foreign_key: true |
+| number      | string |
+| phonenumber | string | null: false |
+| purchase    | references | null: false, foreign_key: true 
 
 ### Association
 - belongs_to :purchase
