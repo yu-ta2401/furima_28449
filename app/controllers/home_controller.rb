@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def index
     #flash[:notice] = "ログイン済ユーザーのみ記事の詳細を確認できます" unless user_signed_in?
+    @items = Item.order("created_at DESC")
   end
 
   def show

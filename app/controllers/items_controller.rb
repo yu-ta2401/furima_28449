@@ -1,8 +1,15 @@
 class ItemsController < ApplicationController
 
-  
+  before_action :set_item
   def edit
   end
+
+  def update
+    if item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
 
   def index
     query = "SELECT * FROM items"
@@ -21,8 +28,16 @@ class ItemsController < ApplicationController
         render :new
     end
   end
+
+  def show
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :image, :explanation, :price, :state_id, :category_id, :burden_id, :day_id, :shippingorigin_id).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
