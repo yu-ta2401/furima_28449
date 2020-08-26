@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
 
   def index
     query = "SELECT * FROM items"
-    @items = Item.find_by_sql(query)
     @items = Item.order("created_at DESC")
   end
 
