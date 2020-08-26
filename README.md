@@ -24,13 +24,13 @@
 | image       | text | null: false |
 | name        | string | null: false |
 | explanation | text | null: false |
-| state       | integer | null: false |
-| category    | integer | null: false |
+| state_id       | integer | null: false |
+| category_id    | integer | null: false |
 | price       | integer | null: false |
 | user        | references | null: false, foreign_key: true 
-| burden      | integer | null: false |
-| days        | integer | null: false |
-| shippingorigin | integer | null: false |
+| burden_id      | integer | null: false |
+| day_id        | integer | null: false |
+| shippingorigin_id | integer | null: false |
 
 ### Association
 - belongs_to :user

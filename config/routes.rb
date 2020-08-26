@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/show'
   get 'home/new'
+  # post 'items/new'
   root to: 'home#index'
   resources :articles
   resources :users, only: [:edit, :update]
+  resources :items
 end
