@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new]
 
   def index
-    #flash[:notice] = "ログイン済ユーザーのみ記事の詳細を確認できます" unless user_signed_in?
+    @items = Item.all.order("created_at DESC")
   end
 
   def show
