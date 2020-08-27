@@ -1,9 +1,16 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   def edit
   end
 
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
 
   def index
     query = "SELECT * FROM items"
@@ -34,4 +41,9 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  end
+
 end
