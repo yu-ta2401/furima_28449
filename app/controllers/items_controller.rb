@@ -1,12 +1,17 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :new]
 
   def index
     @items = Item.all.order(created_at: :desc)
-  end
+  end 
 
   def edit
+    @item = Item.new
+    if user_uthor?
+      redirect_to new_user_session_path
+    end
   end
 
   def update

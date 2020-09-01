@@ -10,7 +10,6 @@ class PurchasesController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
-    #binding.pry
     @address = AddressPurchase.new(address_params)
     if @address.valid?
       pay_item
