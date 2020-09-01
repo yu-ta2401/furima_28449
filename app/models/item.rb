@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-     has_many :purchases
+     has_one :purchase
      belongs_to :user
      has_one_attached :image
      validate :image_presence
@@ -10,6 +10,7 @@ class Item < ApplicationRecord
      belongs_to_active_hash :day
      belongs_to_active_hash :burden
      belongs_to_active_hash :shippingorigin
+     belongs_to_active_hash :prefecture
 
      with_options presence: true do
          validates :name

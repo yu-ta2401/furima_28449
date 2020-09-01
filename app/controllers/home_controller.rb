@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!, only: [:show, :new]
 
   def index
-    @items = Item.all.order("created_at DESC")
+    
   end
 
   def show

@@ -68,3 +68,9 @@ gem 'pry-rails'
 
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+
+gem 'payjp'
+
+group :production do
+  gem 'rails_12factor'
+end
