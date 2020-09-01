@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @items = Item.all.order(created_at: :desc)
+  end
+
   def edit
   end
 
@@ -20,19 +25,17 @@ class ItemsController < ApplicationController
     end
   end
 
-  def index
-    query = "SELECT * FROM items"
-    
-  end
-
   def new
     @item = Item.new
-    # render action: :new
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
+
   def create
     @item = Item.new(item_params)
     if @item.save
-        redirect_to root_path
+      redirect_to root_path
     else
         render :new
     end
@@ -42,6 +45,11 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:nickname, :email, :password)
+  end
+
   def item_params
     params.require(:item).permit(:name, :image, :explanation, :price, :state_id, :category_id, :burden_id, :day_id, :shippingorigin_id).merge(user_id: current_user.id)
   end
@@ -49,6 +57,8 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
