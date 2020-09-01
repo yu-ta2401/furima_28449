@@ -1,5 +1,7 @@
 class PurchasesController < ApplicationController
 
+  before_action only: [index]
+  
   def index
     @item = Item.find(params[:item_id])
     if request.referer.nil?
