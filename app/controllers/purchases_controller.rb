@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
 
-  before_action redirect_root, except: :index
+  efore_action :set_item, only: [:lindex, :show, :edit, :update, :destroy]
 
   def index
     @item = Item.find(params[:item_id])
