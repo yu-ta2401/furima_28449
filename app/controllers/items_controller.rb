@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.new
-    if user_uthor?
+    if user_url
       redirect_to new_user_session_path
     end
   end
